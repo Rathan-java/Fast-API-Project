@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Setup Node.js
@@ -20,10 +20,13 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run Playwright API Tests
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Run API Tests
       run: npx playwright test
 
-    - name: Upload HTML Report
+    - name: Upload Playwright HTML Report
       if: always()
       uses: actions/upload-artifact@v3
       with:
