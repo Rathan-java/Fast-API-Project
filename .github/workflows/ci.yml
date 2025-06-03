@@ -2,8 +2,7 @@ name: API Automation with Playwright
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   test:
@@ -19,15 +18,15 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run API Tests
-        run: npx playwright test
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=html
 
-      - name: Upload Playwright HTML Report
+      - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v3
         with:
