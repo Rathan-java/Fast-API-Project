@@ -1,0 +1,16 @@
+# Node
+node_modules
+playwright-report
+
+# Python
+__pycache__/
+fastapi_app/*.pyc
+fastapi_app/__pycache__/
+
+# Test results
+*.log
+
+# Coverage reports
+coverage*
+htmlcov/
+coverage.xml
